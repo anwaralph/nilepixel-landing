@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free 3-Day AI Web Development Bootcamp | Nile Pixel Technologies</title>
+<meta name="description" content="A free, live 3-day bootcamp on Google Meet for Ethiopian developers. Learn to build and deploy a real website with AI tools. Cohort 1 is limited to 250 seats.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0B1F3A;--panel:#12294A;--line:#2A4A73;--teal:#14B8A6;--teal-ink:#06201C;--mist:#F4F7FA;--text:#1B2A41;--muted:#5B6B82;--err:#FF8A8A;
+--display:"Bricolage Grotesque",Georgia,"Times New Roman",serif;--body:"Figtree",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--body);color:var(--text);background:#fff;line-height:1.6;font-size:17px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+header.top{background:var(--ink);color:#fff}
+header.top .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:20px;padding-bottom:20px;font-size:15px}
+.brand{font-family:var(--display);font-weight:700;font-size:18px;letter-spacing:.01em}
+.hero{background:var(--ink);color:#fff;padding:40px 0 88px}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(36px,5.4vw,60px);line-height:1.06;margin:0 0 20px;letter-spacing:-.02em}
+.lead{font-size:19px;color:#C9D6E6;margin:0 0 28px;max-width:34em}
+form{max-width:480px}
+.row{display:flex;flex-direction:column;gap:12px}
+label{font-size:15px;font-weight:600;display:block;margin-bottom:6px}
+input[type=text],input[type=email]{width:100%;font:inherit;padding:14px 16px;border-radius:8px;border:2px solid transparent;background:#fff;color:var(--text)}
+button{font:inherit;font-weight:600;font-size:18px;padding:15px 22px;border:0;border-radius:8px;background:var(--teal);color:var(--teal-ink);cursor:pointer}
+button:hover{background:#2DD4C1}
+button[disabled]{opacity:.7;cursor:wait}
+.hp{position:absolute;left:-9999px;height:0;width:0;overflow:hidden}
+.note{font-size:15px;color:#9FB3CC;margin:12px 0 0}
+.msg{min-height:1.5em;margin:10px 0 0;font-size:15px;color:var(--err)}
+.done{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:22px 24px;max-width:480px}
+.done h2{font-family:var(--display);font-size:24px;margin:0 0 6px}
+.done p{margin:0;color:#C9D6E6}
+.prompt{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:22px}
+.prompt .bar{display:flex;justify-content:space-between;font-size:14px;color:#9FB3CC;margin-bottom:14px}
+.typed{font-size:18px;color:#fff;min-height:7.2em;margin:0}
+.typed::after{content:"";display:inline-block;width:2px;height:1.1em;background:var(--teal);margin-left:2px;vertical-align:-.15em;animation:blink 1s steps(1) infinite}
+.deployed{margin-top:16px;padding:12px 14px;border-radius:8px;background:#0B1F3A;border:1px solid var(--line);font-size:15px;color:#9FB3CC;opacity:0;transform:translateY(6px);transition:opacity .5s,transform .5s}
+.deployed.on{opacity:1;transform:none}
+.deployed b{color:var(--teal);font-weight:600}
+@keyframes blink{50%{opacity:0}}
+section{padding:72px 0}
+section.mist{background:var(--mist)}
+h2.s{font-family:var(--display);font-size:clamp(28px,3.6vw,40px);line-height:1.12;margin:0 0 12px;letter-spacing:-.015em}
+.sub{color:var(--muted);margin:0 0 40px;max-width:38em}
+.days{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.day{background:#fff;border:1px solid #DCE4EE;border-radius:12px;padding:26px}
+.day .n{font-family:var(--display);font-weight:800;font-size:15px;color:#0B7F73}
+.day h3{font-family:var(--display);font-size:22px;line-height:1.2;margin:6px 0 4px}
+.day .who{font-size:15px;color:var(--muted);margin:0 0 14px}
+.day p{margin:0}
+details{border-bottom:1px solid #DCE4EE;padding:18px 0;max-width:720px}
+summary{cursor:pointer;font-weight:600;font-size:18px}
+details p{margin:10px 0 0;color:var(--muted)}
+.cta{background:var(--ink);color:#fff;text-align:center;padding:64px 0}
+.cta h2{font-family:var(--display);font-size:clamp(28px,3.6vw,38px);margin:0 0 10px}
+.cta p{color:#C9D6E6;margin:0 0 24px}
+.cta a.btn{display:inline-block;text-decoration:none;font-weight:600;font-size:18px;padding:15px 26px;border-radius:8px;background:var(--teal);color:var(--teal-ink)}
+footer{background:var(--ink);color:#9FB3CC;font-size:14px;padding:0 0 28px;text-align:center}
+@media(max-width:860px){.hero .wrap{grid-template-columns:1fr;gap:40px}.days{grid-template-columns:1fr}.hero{padding-bottom:64px}.typed{min-height:9em}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.typed::after{animation:none}.deployed{transition:none}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap"><span class="brand">Nile Pixel Technologies</span><span>Free. Live on Google Meet.</span></div></header>
+
+<main>
+<div class="hero"><div class="wrap">
+  <div>
+    <h1>Build and launch a real website in 3 days, with AI.</h1>
+    <p class="lead">A free live bootcamp for Ethiopian developers. You learn how full-stack apps fit together, how to direct AI tools, and how to put a site on the internet.</p>
+    <div id="signup">
+      <form id="form" novalidate>
+        <div class="row">
+          <div><label for="name">First name</label><input id="name" name="name" type="text" autocomplete="given-name" maxlength="60"></div>
+          <div><label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email" required placeholder="you@example.com"></div>
+          <div class="hp" aria-hidden="true"><label for="company">Company</label><input id="company" name="company" type="text" tabindex="-1" autocomplete="off"></div>
+          <button type="submit" id="btn">Reserve my free seat</button>
+        </div>
+        <p class="note">Cohort 1 is limited to 250 seats. Starts November 1. We only use your email for bootcamp updates.</p>
+        <p class="msg" id="msg" role="alert" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+  <div class="prompt" aria-hidden="true">
+    <div class="bar"><span>Your prompt</span><span>Day 2</span></div>
+    <p class="typed" id="typed"></p>
+    <div class="deployed" id="deployed"><b>Deployed.</b> coffee-bole.vercel.app is live</div>
+  </div>
+</div></div>
+
+<section class="mist"><div class="wrap">
+  <h2 class="s">Three live days, one site shipped</h2>
+  <p class="sub">Each cohort attends the same three sessions on consecutive days.</p>
+  <div class="days">
+    <article class="day"><span class="n">Day 1</span><h3>Intro to Fullstack Web Development</h3><p class="who">With Abdurehman</p>
+      <p>Frontend, backend and databases explained with visual diagrams. No heavy coding. You leave knowing what the AI will be doing for you.</p></article>
+    <article class="day"><span class="n">Day 2</span><h3>Prompt Engineering and AI Tools</h3><p class="who">With Fuad</p>
+      <p>Meet Bolt.new, Lovable and v0. Learn a framework for writing UI and UX system prompts, and how to fix AI hallucinations.</p></article>
+    <article class="day"><span class="n">Day 3</span><h3>Project Build and Deployment</h3><p class="who">With Abdurehman</p>
+      <p>We build a complete site live from a student's idea, connect a backend like Supabase, deploy it with Vercel, and share the live link in the chat.</p></article>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2 class="s">Before you sign up</h2>
+  <p class="sub">Short answers to the usual questions.</p>
+  <details><summary>Is it really free?</summary><p>Yes. The bootcamp is free for all four cohorts.</p></details>
+  <details><summary>Do I need to know how to code?</summary><p>No heavy coding. Day 1 is about understanding how web apps work, so the AI tools make sense when you use them.</p></details>
+  <details><summary>How do I join each session?</summary><p>We email you the Google Meet link one hour before each live session.</p></details>
+  <details><summary>What if I miss a session?</summary><p>After each session we email you the recording and a homework assignment.</p></details>
+  <details><summary>What do I need?</summary><p>A laptop, a stable internet connection and a Google account.</p></details>
+</div></section>
+
+<div class="cta"><div class="wrap">
+  <h2>Cohort 1 has 250 seats</h2>
+  <p>Add your email and we will send your cohort dates and group link.</p>
+  <a class="btn" href="#signup">Reserve my free seat</a>
+</div></div>
+</main>
+
+<footer><div class="wrap"><p>&copy; 2026 Nile Pixel Technologies</p></div></footer>
+
+<script>
+(function(){
+  var full="Build a booking site for a coffee shop in Bole. Warm colors, a menu page, and an order form that saves to Supabase.";
+  var el=document.getElementById('typed'),out=document.getElementById('deployed');
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){el.textContent=full;out.classList.add('on');}
+  else{var i=0,t=setInterval(function(){el.textContent=full.slice(0,++i);if(i>=full.length){clearInterval(t);setTimeout(function(){out.classList.add('on')},500)}},38);}
+
+  var form=document.getElementById('form'),msg=document.getElementById('msg'),btn=document.getElementById('btn');
+  var p=new URLSearchParams(location.search);
+  var src=(p.get('src')||p.get('utm_source')||'direct').slice(0,40);
+  form.addEventListener('submit',function(e){
+    e.preventDefault();msg.textContent='';
+    var email=form.email.value.trim();
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)){msg.textContent='Enter a valid email address.';form.email.focus();return;}
+    btn.disabled=true;btn.textContent='Saving your seat...';
+    fetch('/api/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({email:email,name:form.name.value.trim(),company:form.company.value,src:src})})
+    .then(function(r){if(!r.ok)throw new Error();return r.json();})
+    .then(function(){
+      document.getElementById('signup').innerHTML='<div class="done" role="status"><h2>You are on the list.</h2><p>We will email your cohort dates and the Telegram group link before the first session.</p></div>';
+    })
+    .catch(function(){
+      msg.textContent='We could not save your email. Check your connection and try again.';
+      btn.disabled=false;btn.textContent='Reserve my free seat';
+    });
+  });
+})();
+</script>
+</body>
+</html>
