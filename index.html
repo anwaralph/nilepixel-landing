@@ -24,7 +24,7 @@ header.top .wrap{display:flex;justify-content:space-between;align-items:center;p
 .hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
 h1{font-family:var(--display);font-weight:800;font-size:clamp(36px,5.4vw,60px);line-height:1.06;margin:0 0 20px;letter-spacing:-.02em}
 .lead{font-size:19px;color:#C9D6E6;margin:0 0 28px;max-width:34em}
-.card{background:#fff;color:var(--text);border-radius:12px;padding:26px}.card h2{font-family:var(--display);font-size:26px;margin:0 0 4px}.hint{color:var(--muted);font-size:15px;margin:0 0 18px}form button{width:100%}fieldset{border:0;margin:0;padding:0}legend{font-size:15px;font-weight:600;margin-bottom:6px;padding:0}.checks{display:grid;grid-template-columns:1fr 1fr;gap:6px 12px}.checks label,.consent{font-weight:400;display:flex;gap:8px;align-items:flex-start;margin:0;font-size:15px}input[type=checkbox]{width:18px;height:18px;margin-top:3px;accent-color:#0E9F8F}.opt{font-weight:400;color:var(--muted)}.hero .prompt{margin-top:32px;max-width:520px}
+.card{background:#fff;color:var(--text);border-radius:12px;padding:26px}.card h2{font-family:var(--display);font-size:26px;margin:0 0 4px}.hint{color:var(--muted);font-size:15px;margin:0 0 18px}form button{width:100%}fieldset{border:0;margin:0;padding:0}legend{font-size:15px;font-weight:600;margin-bottom:6px;padding:0}.checks{display:grid;grid-template-columns:1fr 1fr;gap:6px 12px}.checks label,.consent{font-weight:400;display:flex;gap:8px;align-items:flex-start;margin:0;font-size:15px}input[type=checkbox]{width:18px;height:18px;margin-top:3px;accent-color:#0E9F8F}.opt{font-weight:400;color:var(--muted)}.glance{margin-top:32px;max-width:520px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px 24px 6px}.glance h2{font-family:var(--display);font-size:20px;margin:0 0 6px}.glance dl{margin:0}.glance dl div{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-top:1px solid var(--line)}.glance dt{color:#9FB3CC;font-size:15px}.glance dd{margin:0;text-align:right;font-weight:600;font-size:15px}.glance .free{color:var(--teal)}
 .row{display:flex;flex-direction:column;gap:12px}
 label{font-size:15px;font-weight:600;display:block;margin-bottom:6px}
 input[type=text],input[type=email],select{width:100%;font:inherit;padding:12px 14px;border-radius:8px;border:2px solid #CBD6E3;background:#fff;color:var(--text)}input:focus,select:focus{border-color:var(--teal)}
@@ -63,7 +63,7 @@ details p{margin:10px 0 0;color:var(--muted)}
 .cta p{color:#C9D6E6;margin:0 0 24px}
 .cta a.btn{display:inline-block;text-decoration:none;font-weight:600;font-size:18px;padding:15px 26px;border-radius:8px;background:var(--teal);color:var(--teal-ink)}
 footer{background:var(--ink);color:#9FB3CC;font-size:14px;padding:0 0 28px;text-align:center}
-@media(max-width:860px){.hero .wrap{grid-template-columns:1fr;gap:40px}.days{grid-template-columns:1fr}.hero{padding-bottom:64px}.prompt{display:none}}
+@media(max-width:860px){.hero .wrap{grid-template-columns:1fr;gap:40px}.days{grid-template-columns:1fr}.hero{padding-bottom:64px}.glance{display:none}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.typed::after{animation:none}.deployed{transition:none}}
 </style>
 </head>
@@ -75,10 +75,16 @@ footer{background:var(--ink);color:#9FB3CC;font-size:14px;padding:0 0 28px;text-
   <div>
     <h1>Build and launch a real website in 3 days, with AI.</h1>
     <p class="lead">A free live bootcamp for Ethiopian developers. You learn how full-stack apps fit together, how to direct AI tools, and how to put a site on the internet.</p>
-    <div class="prompt" aria-hidden="true">
-      <div class="bar"><span>Your prompt</span><span>Day 2</span></div>
-      <p class="typed" id="typed"></p>
-      <div class="deployed" id="deployed"><b>Deployed.</b> coffee-bole.vercel.app is live</div>
+    <div class="glance">
+      <h2>Bootcamp at a glance</h2>
+      <dl>
+        <div><dt>Format</dt><dd>Live on Google Meet</dd></div>
+        <div><dt>Length</dt><dd>3 days, one live session each day</dd></div>
+        <div><dt>Starts</dt><dd>November 1, 2026</dd></div>
+        <div><dt>Price</dt><dd class="free">Free</dd></div>
+        <div><dt>Seats</dt><dd>250 per cohort</dd></div>
+        <div><dt>You will build</dt><dd>A real website, live on the internet</dd></div>
+      </dl>
     </div>
   </div>
   <div class="card" id="signup">
@@ -150,11 +156,6 @@ footer{background:var(--ink);color:#9FB3CC;font-size:14px;padding:0 0 28px;text-
 
 <script>
 (function(){
-  var full="Build a booking site for a coffee shop in Bole. Warm colors, a menu page, and an order form that saves to Supabase.";
-  var el=document.getElementById('typed'),out=document.getElementById('deployed');
-  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){el.textContent=full;out.classList.add('on');}
-  else{var i=0,t=setInterval(function(){el.textContent=full.slice(0,++i);if(i>=full.length){clearInterval(t);setTimeout(function(){out.classList.add('on')},500)}},38);}
-
   var $=function(id){return document.getElementById(id)};
   var form=$('form'),msg=$('msg'),btn=$('btn'),card=$('signup');
   var p=new URLSearchParams(location.search);
