@@ -1,23 +1,47 @@
-# Nile Pixel bootcamp landing page (Brevo + Vercel)
+# Nile Pixel AI Web Development Bootcamp: registration page
 
-Files: `index.html` (the page) and `api/subscribe.js` (sends signups to Brevo; keeps your API key off the page).
+A one-page site where people register for the free 3-day AI Web Development Bootcamp.
+Each registration is saved to a Brevo list and the person gets an automatic confirmation email.
 
-## 1. Brevo setup (free plan)
-1. Log in to Brevo > **Contacts > Lists** > create a list, e.g. "Bootcamp signups". Note its **List ID** (shown next to the list name).
-2. **Contacts > Settings > Contact attributes** > add a **Text** attribute named `SOURCE` (tracks where each signup came from). Optional: if you skip it, emails are still saved.
-3. Top-right menu > **SMTP & API > API keys** > generate a key. Copy it once; keep it private.
+## Files
+- `index.html`: the landing page and registration form
+- `api/subscribe.js`: a Vercel serverless function. It checks the form, saves the contact to Brevo, and sends the confirmation email. The Brevo API key stays on the server and never appears on the page.
 
-## 2. Deploy on Vercel
-1. Push this folder to a GitHub repo, then import it in Vercel (or run `npx vercel` in this folder).
-2. In Vercel > Project > **Settings > Environment Variables** add:
-   - `BREVO_API_KEY` = your key
-   - `BREVO_LIST_ID` = your list ID (a number)
-3. Redeploy. Open the site, sign up with your own email, and check it appears in the Brevo list.
+## What the form saves
+First name, last name, email, age range, education level, coding level, skills, laptop access, city, Telegram username, and the traffic source.
+Brevo contact attributes (Text type) used: `AGE_RANGE`, `EDUCATION`, `CODING_LEVEL`, `SKILLS`, `CITY`, `TELEGRAM`, `LAPTOP`, `SOURCE`.
+The function tries to create them automatically on the first registration. If they are missing in Brevo, create them by hand under Contacts > Settings > Contact attributes.
 
-## 3. Track your channels
-Share links with a `src` tag so you can see what converts:
-- `https://yoursite.vercel.app/?src=linkedin`
-- `?src=facebook`, `?src=telegram`, `?src=community`
+## Setup
+1. **Brevo list:** Contacts > Lists > create a list (for example "Bootcamp signups") and note its List ID.
+2. **Brevo API key:** account menu > SMTP & API > API keys > generate a key. Copy it once and keep it private.
+3. **Brevo sender:** Senders, Domains & Dedicated IPs > Senders > add and verify the address the confirmation emails come from.
+4. **Deploy:** push this folder to GitHub and import the repo into Vercel (framework: Other, no build command).
+5. **Environment variables** (Vercel > Project > Settings > Environment Variables):
 
-## 4. Later (Week 3)
-Brevo free sends 300 emails/day, so email each 250-person cohort on a separate day. Segment contacts into Cohort A-D lists inside Brevo before sending the welcome emails.
+   | Name | Value |
+   |---|---|
+   | `BREVO_API_KEY` | your Brevo API key |
+   | `BREVO_LIST_ID` | the list ID (a number) |
+   | `BREVO_SENDER_EMAIL` | the verified sender address |
+   | `BREVO_SENDER_NAME` | for example `Nile Pixel Technologies` (optional) |
+   | `TELEGRAM_URL` | the Telegram channel invite link |
+
+6. **Redeploy** after adding or changing any variable. Changes take effect only on a new deployment.
+7. **Test:** register with an email you can open. Check that the confirmation arrives and the contact appears in the Brevo list with its answers.
+
+Never put the API key in any file in this repo.
+
+## Tracking channels
+Share links with a `src` tag to see which channel brings registrations:
+`/?src=linkedin`, `/?src=facebook`, `/?src=telegram`, `/?src=community`.
+The tag is saved in the `SOURCE` attribute.
+
+## How emails work
+- **Confirmation email:** sent automatically when someone registers with a new email address. Repeat registrations do not trigger another email.
+- **Later emails** (cohort details, Google Meet links, recordings, homework): create a campaign in Brevo, choose the list or segment as recipients, and use Schedule to send at a set date and time.
+- Brevo's free plan allows about 300 emails per day. Confirmations count toward that total.
+
+## Notes
+- Registration answers live in Brevo, not in this repository.
+- The page uses Google Fonts. Everything else is in `index.html`.
