@@ -1,4 +1,4 @@
-# Nile Pixel AI Web Development Bootcamp: registration page
+# NilePixel AI Web Development Bootcamp: registration page
 
 A one-page site where people register for the free 3-day AI Web Development Bootcamp.
 Each registration is saved to a Brevo list and the person gets an automatic confirmation email.
@@ -24,7 +24,7 @@ The function tries to create them automatically on the first registration. If th
    | `BREVO_API_KEY` | your Brevo API key |
    | `BREVO_LIST_ID` | the list ID (a number) |
    | `BREVO_SENDER_EMAIL` | the verified sender address |
-   | `BREVO_SENDER_NAME` | for example `Nile Pixel Technologies` (optional) |
+   | `BREVO_SENDER_NAME` | for example `NilePixel Technologies` (optional) |
    | `TELEGRAM_URL` | the Telegram channel invite link |
 
 6. **Redeploy** after adding or changing any variable. Changes take effect only on a new deployment.

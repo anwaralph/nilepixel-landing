@@ -35,29 +35,29 @@ async function sendConfirmation(headers, email, first) {
   const tg = process.env.TELEGRAM_URL;
   const text = [
     `Hi ${first},`, '',
-    'You are registered for the free 3-day AI Web Development Bootcamp by Nile Pixel Technologies.', '',
+    'You are registered for the free 3-day AI Web Development Bootcamp by NilePixel Technologies.', '',
     tg ? `Next step: join our Telegram channel for updates, ground rules and questions:\n${tg}\n` : '',
     'What happens next:',
-    '- The bootcamp starts on November 1. Sessions are live on Google Meet on consecutive days.',
-    '- We will email you your cohort and session details.',
-    '- We email the Google Meet link one hour before each session.',
+    '- Cohort A goes live on Saturday, November 7 and runs for three consecutive days (November 7 to 9) on Google Meet.',
+    '- Sign-ups close on November 4. After that we email you your cohort, dates and Telegram group link.',
+    '- We email the Google Meet link, and post it on Telegram, one hour before each session.',
     '- After each session we email the recording and homework.', '',
-    'See you there,', 'Nile Pixel Technologies team',
+    'See you there,', 'NilePixel Technologies team',
   ].join('\n');
   const html = `<div style="font-family:Arial,sans-serif;font-size:16px;color:#1B2A41;line-height:1.6;max-width:560px">
 <p>Hi ${esc(first)},</p>
-<p>You are registered for the free <b>3-day AI Web Development Bootcamp</b> by Nile Pixel Technologies.</p>
+<p>You are registered for the free <b>3-day AI Web Development Bootcamp</b> by NilePixel Technologies.</p>
 ${tg ? `<p><b>Next step:</b> join our Telegram channel for updates, ground rules and questions:<br><a href="${esc(tg)}">${esc(tg)}</a></p>` : ''}
 <p><b>What happens next</b></p>
-<ul><li>The bootcamp starts on November 1. Sessions are live on Google Meet on consecutive days.</li>
-<li>We will email you your cohort and session details.</li>
-<li>We email the Google Meet link one hour before each session.</li>
+<ul><li><b>Cohort A</b> goes live on <b>Saturday, November 7</b> and runs for three consecutive days (November 7 to 9) on Google Meet.</li>
+<li>Sign-ups close on <b>November 4</b>. After that we email you your cohort, dates and Telegram group link.</li>
+<li>We email the Google Meet link, and post it on Telegram, one hour before each session.</li>
 <li>After each session we email the recording and homework.</li></ul>
-<p>See you there,<br>Nile Pixel Technologies team</p></div>`;
+<p>See you there,<br>NilePixel Technologies team</p></div>`;
   const r = await fetch(`${API}/smtp/email`, {
     method: 'POST', headers,
     body: JSON.stringify({
-      sender: { name: process.env.BREVO_SENDER_NAME || 'Nile Pixel Technologies', email: senderEmail },
+      sender: { name: process.env.BREVO_SENDER_NAME || 'NilePixel Technologies', email: senderEmail },
       to: [{ email, name: first }],
       subject: 'You are registered: free AI Web Development Bootcamp',
       htmlContent: html, textContent: text,
