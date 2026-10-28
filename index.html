@@ -98,9 +98,17 @@ input[type=checkbox]{width:17px;height:17px;margin:2px 0 0;flex:none;accent-colo
 .consent{line-height:1.5}
 .hp{position:absolute;left:-9999px;height:0;width:0;overflow:hidden}
 .msg{min-height:1.4em;margin:12px 0 0;font-size:13px;color:var(--err)}
-.done{padding:10px 0;text-align:center}
-.done h2{margin:0 0 8px}
+.done{padding:6px 0;text-align:center}
+.done h2{margin:0 0 8px;font-size:24px}
 .done p{margin:0;color:var(--body)}
+.done .ok{display:grid;place-items:center;width:52px;height:52px;margin:0 auto 14px;border-radius:50%;background:var(--accent-soft);color:var(--accent)}
+.done .ok svg{width:26px;height:26px}
+.done .next{margin:22px 0 0;padding:20px 16px;border-radius:16px;background:var(--surface);border:1px solid var(--line)}
+.done .tag-icon{display:grid;place-items:center;width:40px;height:40px;margin:0 auto 10px;border-radius:50%;background:var(--accent);color:#fff}
+.done .tag-icon svg{width:18px;height:18px}
+.done .next h3{font-size:16px;line-height:1.35;margin:0 0 8px}
+.done .next p{font-size:13.5px;margin:0 0 16px}
+.done .when-note{margin-top:16px;font-size:13px;color:var(--muted)}
 
 /* Sections */
 section{padding:56px 0}
@@ -423,8 +431,20 @@ footer a:hover{color:var(--accent)}
       body:JSON.stringify({name:name,email:email,age:$('age').value,education:$('education').value,level:$('level').value,skills:skills,laptop:$('laptop').value,city:$('city').value.trim(),telegram:$('telegram').value.trim(),consent:true,company:$('company').value,src:src})})
     .then(function(r){if(!r.ok)throw new Error();return r.json();})
     .then(function(d){
-      card.innerHTML='<div class="done" role="status"><h2>You are registered.</h2><p></p></div>';
-      card.querySelector('p').textContent=(d&&d.emailed)?'We sent a confirmation email with your Telegram link. Check your inbox, and your spam folder if you do not see it.':'We will email you your cohort details and the Telegram link.';
+      var sent=(d&&d.emailed)?'We sent a confirmation email. Check your inbox, and your spam folder if you do not see it.':'We will email you a confirmation shortly.';
+      card.innerHTML='<div class="done" role="status">'
+        +'<span class="ok" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>'
+        +'<h2>You are registered.</h2>'
+        +'<p class="sent"></p>'
+        +'<div class="next">'
+        +'<span class="tag-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 4L3 11l6 2 2 6 3-4 5 4z"/><path d="M9 13l12-9"/></svg></span>'
+        +'<h3>One more step: join our Telegram channel</h3>'
+        +'<p>This is where we share your cohort, session links and updates first, and where you can ask questions and meet the other learners. We recommend joining now so you do not miss anything.</p>'
+        +'<a class="btn btn-primary" href="https://t.me/NilePixelTech" target="_blank" rel="noopener">Join our Telegram channel</a>'
+        +'</div>'
+        +'<p class="when-note">Cohort A starts Saturday, November 7. Sign-ups close November 4, then we email your cohort and dates.</p>'
+        +'</div>';
+      card.querySelector('.sent').textContent=sent;
     })
     .catch(function(){
       msg.textContent='We could not save your registration. Check your connection and try again.';
