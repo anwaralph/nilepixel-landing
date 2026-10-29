@@ -39,7 +39,7 @@ async function sendConfirmation(headers, email, first) {
     tg ? `Next step: join our Telegram channel for updates, ground rules and questions:\n${tg}\n` : '',
     'What happens next:',
     '- Cohort A goes live on Saturday, November 7 and runs for three consecutive days (November 7 to 9) on Google Meet.',
-    '- Sign-ups close on November 4. After that we email you your cohort, dates and Telegram group link.',
+    '- Sign-ups close on November 2. After that we email you your cohort, dates and Telegram group link.',
     '- We email the Google Meet link, and post it on Telegram, one hour before each session.',
     '- After each session we email the recording and homework.', '',
     'See you there,', 'NilePixel Technologies team',
@@ -50,7 +50,7 @@ async function sendConfirmation(headers, email, first) {
 ${tg ? `<p><b>Next step:</b> join our Telegram channel for updates, ground rules and questions:<br><a href="${esc(tg)}">${esc(tg)}</a></p>` : ''}
 <p><b>What happens next</b></p>
 <ul><li><b>Cohort A</b> goes live on <b>Saturday, November 7</b> and runs for three consecutive days (November 7 to 9) on Google Meet.</li>
-<li>Sign-ups close on <b>November 4</b>. After that we email you your cohort, dates and Telegram group link.</li>
+<li>Sign-ups close on <b>November 2</b>. After that we email you your cohort, dates and Telegram group link.</li>
 <li>We email the Google Meet link, and post it on Telegram, one hour before each session.</li>
 <li>After each session we email the recording and homework.</li></ul>
 <p>See you there,<br>NilePixel Technologies team</p></div>`;
